@@ -2,9 +2,16 @@ import React from 'react'
 import Player from '../player'
 import Map from '../map'
 
+import { tiles } from '../../data/maps/1'
+import store from '../../config/store'
 
-const World = () => (
-  <div 
+
+const World = () => {
+  store.dispatch({ type: 'ADD_TILES', payload: {
+    tiles,
+  }})
+  return (
+    <div 
     style={{
       position: 'relative',
       width: '800px',
@@ -15,6 +22,7 @@ const World = () => (
     <Map />
     <Player />
   </div>
-)
-
+  )
+}
+  
 export default World
